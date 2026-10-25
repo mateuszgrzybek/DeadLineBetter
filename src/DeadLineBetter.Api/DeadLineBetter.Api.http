@@ -1,0 +1,6 @@
+@DeadLineBetter.Api_HostAddress = http://localhost:5267
+
+GET {{DeadLineBetter.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

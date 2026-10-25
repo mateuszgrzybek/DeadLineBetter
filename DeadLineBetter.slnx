@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DeadLineBetter.Api/DeadLineBetter.Api.csproj" />
+    <Project Path="src/DeadLineBetter.Infrastructure/DeadLineBetter.Infrastructure.csproj" />
+  </Folder>
+</Solution>

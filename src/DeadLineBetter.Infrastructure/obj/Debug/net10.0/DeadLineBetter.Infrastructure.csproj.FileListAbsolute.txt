@@ -1,0 +1,12 @@
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\bin\Debug\net10.0\DeadLineBetter.Infrastructure.deps.json
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\bin\Debug\net10.0\DeadLineBetter.Infrastructure.dll
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\bin\Debug\net10.0\DeadLineBetter.Infrastructure.pdb
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.AssemblyInfoInputs.cache
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.AssemblyInfo.cs
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.csproj.CoreCompileInputs.cache
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.dll
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\refint\DeadLineBetter.Infrastructure.dll
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.pdb
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\ref\DeadLineBetter.Infrastructure.dll
+I:\Repos\DeadLineBetter\src\DeadLineBetter.Infrastructure\obj\Debug\net10.0\DeadLineBetter.Infrastructure.csproj.AssemblyReference.cache
