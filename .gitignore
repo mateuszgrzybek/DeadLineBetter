@@ -1,0 +1,18 @@
+
+# .NET build output
+**/bin/
+**/obj/
+
+# IDE files
+.vs/
+*.user
+*.suo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local test and coverage output
+TestResults/
+coverage/
