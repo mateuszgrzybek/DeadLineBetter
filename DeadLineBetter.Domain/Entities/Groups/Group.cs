@@ -7,6 +7,7 @@ namespace DeadLineBetter.Domain.Entities.Groups
   {
     public Guid Id { get; private set; }
     public string Name { get; private set; } = string.Empty;
+    public GroupJoinCode JoinCode { get; private set; } = null!;
     public IReadOnlyCollection<GroupMembership> Memberships => _memberships.AsReadOnly();
     private readonly List<GroupMembership> _memberships = [];
 
@@ -23,7 +24,7 @@ namespace DeadLineBetter.Domain.Entities.Groups
       Name = ValidateName(name);
     }
 
-    public static Group Create(string name, Guid creatorUserId)
+    public static Group Create(string name, Guid creatorUserId, string codeHash, string encryptedCode, DateTimeOffset createdAtUtc)
     {
       if (creatorUserId  == Guid.Empty)
       {
@@ -35,6 +36,8 @@ namespace DeadLineBetter.Domain.Entities.Groups
       group._memberships.Add(
         new GroupMembership(group.Id, creatorUserId, GroupRole.Organizer)
       );
+
+      group.JoinCode = new GroupJoinCode(group.Id, codeHash, encryptedCode, createdAtUtc);
 
       return group;
     }
