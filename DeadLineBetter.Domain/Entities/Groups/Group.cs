@@ -42,6 +42,11 @@ namespace DeadLineBetter.Domain.Entities.Groups
       return group;
     }
 
+    public void RegenerateJoinCode(string codeHash, string encryptedCode, DateTimeOffset createdAtUtc)
+    {
+      JoinCode.UpdateJoinCode(codeHash, encryptedCode, createdAtUtc);
+    }
+
     public void Rename(string newName)
     {
       Name = ValidateName(newName);
