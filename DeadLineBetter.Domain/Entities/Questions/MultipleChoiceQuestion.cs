@@ -13,7 +13,7 @@
 
       var options = answerOptions.ToList();
 
-      EnsureAnswerOptionCountAndUniqueness(options);
+      EnsureInitialAnswerOptionCountAndUniqueness(options);
 
       var questionId = Guid.NewGuid();
 
@@ -25,6 +25,15 @@
       }
 
       return mutlipleChoiceQuestion;
+    }
+
+    public void AddAnswerOption(string answerText, bool hasPredictions)
+    {
+      EnsureAnswerOptionsCanBeModified(hasPredictions);
+      ValidateAnswerOptionText(answerText);
+      EnsureNewAnswerOptionIsUnique(answerText);
+
+      _answerOptions.Add(new AnswerOption(Guid.NewGuid(), Id, answerText));
     }
 
     public void ChangeAnswerOption(Guid answerOptionId, string newAnswerText, bool hasPredictions)
@@ -43,6 +52,25 @@
       matchingOption.ChangeText(newAnswerText);
     }
 
+    public void DeleteAnswerOption(Guid answerOptionId, bool hasPredictions)
+    {
+      EnsureAnswerOptionsCanBeModified(hasPredictions);
+
+      if (answerOptionId == Guid.Empty)
+      {
+        throw new ArgumentException("The ID of the answer option to delete cannot be empty", nameof(answerOptionId));
+      }
+
+      if (_answerOptions.Count <= 2)
+      {
+        throw new InvalidOperationException("Each multiple choice question must have at least 2 answer options.");
+      }
+
+      var matchingOption = _answerOptions.FirstOrDefault(answerOption => answerOption.Id == answerOptionId) ?? throw new InvalidOperationException("An answer option with the provided ID has not been found");
+
+      _answerOptions.Remove(matchingOption);
+    }
+
     private void EnsureAnswerOptionsCanBeModified(bool hasPredictions)
     {
       if (hasPredictions) throw new InvalidOperationException("Answer options cannot be modified if predictions were already submitted");
@@ -50,7 +78,7 @@
       if (DateTimeOffset.UtcNow >= DeadlineInUtc) throw new InvalidOperationException("Answer options cannot be modified after the prediction submission deadline has passed");
     }
 
-    private static void EnsureAnswerOptionCountAndUniqueness(IReadOnlyCollection<string> answerOptions)
+    private static void EnsureInitialAnswerOptionCountAndUniqueness(IReadOnlyCollection<string> answerOptions)
     {
       if (answerOptions.Count < 2) //TODO: Move to consts
       {
@@ -75,6 +103,14 @@
       if (string.IsNullOrWhiteSpace(answerOptionText))
       {
         throw new ArgumentException("Answer option cannot be empty or white-space only", nameof(answerOptionText));
+      }
+    }
+
+    private void EnsureNewAnswerOptionIsUnique(string answerOption)
+    {
+      if (_answerOptions.Any(option => string.Equals(option.Text, answerOption.Trim(), StringComparison.OrdinalIgnoreCase)))
+      {
+        throw new ArgumentException("An answer option with this text already exists", nameof(answerOption));
       }
     }
   }
