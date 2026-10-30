@@ -3,6 +3,7 @@
   public sealed class MultipleChoiceQuestion : Question
   {
     public IReadOnlyCollection<AnswerOption> AnswerOptions => _answerOptions.AsReadOnly();
+    public Guid? CorrectAnswerOptionId { get; private set; }
     private readonly List<AnswerOption> _answerOptions = [];
 
     private MultipleChoiceQuestion(Guid id, Guid groupId, Guid creatorUserId, string questionText, DateTimeOffset deadlineInUtc) : base(id, groupId, creatorUserId, questionText, deadlineInUtc) { }
@@ -69,6 +70,12 @@
       var matchingOption = _answerOptions.FirstOrDefault(answerOption => answerOption.Id == answerOptionId) ?? throw new InvalidOperationException("An answer option with the provided ID has not been found");
 
       _answerOptions.Remove(matchingOption);
+    }
+    public void Resolve(Guid correctAnswerOptionId)
+    {
+      var matchingOption = _answerOptions.FirstOrDefault(answerOption => answerOption.Id == correctAnswerOptionId) ?? throw new InvalidOperationException("An answer option with the provided ID has not been found");
+
+      CorrectAnswerOptionId = correctAnswerOptionId;
     }
 
     private void EnsureAnswerOptionsCanBeModified(bool hasPredictions)

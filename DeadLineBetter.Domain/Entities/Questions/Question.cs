@@ -42,6 +42,25 @@
       ValidateAndSetDeadlineAndCreationTimes(deadlineInUtc);
     }
 
+    public void EnsureCanBeEdited(bool hasPredictions)
+    {
+      if (hasPredictions)
+      {
+        throw new InvalidOperationException("Questions with predictions cannot be edited.");
+      }
+
+      if (DateTimeOffset.UtcNow >= DeadlineInUtc)
+      {
+        throw new InvalidOperationException("Questions cannot be edited after their deadline.");
+      }
+    }
+    public void EnsureCanBeDeleted(bool hasPredictions)
+    {
+      if (hasPredictions) throw new InvalidOperationException("Questions with predictions cannot be deleted.");
+
+      if (DateTimeOffset.UtcNow >= DeadlineInUtc) throw new InvalidOperationException("Questions cannot be deleted after their deadline.");
+    }
+
     private void ValidateAndSetDeadlineAndCreationTimes(DateTimeOffset deadlineInUtc)
     {
       var utcNow = DateTimeOffset.UtcNow;
