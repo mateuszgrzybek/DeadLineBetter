@@ -24,7 +24,7 @@ namespace DeadLineBetter.Domain.Entities.Groups
       Name = ValidateName(name);
     }
 
-    public static Group Create(string name, Guid creatorUserId, string codeHash, string encryptedCode, DateTimeOffset createdAtUtc)
+    public static Group Create(string name, Guid creatorUserId, string codeHash, string encryptedCode)
     {
       if (creatorUserId  == Guid.Empty)
       {
@@ -37,14 +37,14 @@ namespace DeadLineBetter.Domain.Entities.Groups
         new GroupMembership(group.Id, creatorUserId, GroupRole.Organizer)
       );
 
-      group.JoinCode = new GroupJoinCode(group.Id, codeHash, encryptedCode, createdAtUtc);
+      group.JoinCode = new GroupJoinCode(group.Id, codeHash, encryptedCode);
 
       return group;
     }
 
-    public void RegenerateJoinCode(string codeHash, string encryptedCode, DateTimeOffset createdAtUtc)
+    public void RegenerateJoinCode(string codeHash, string encryptedCode)
     {
-      JoinCode.UpdateJoinCode(codeHash, encryptedCode, createdAtUtc);
+      JoinCode.UpdateJoinCode(codeHash, encryptedCode);
     }
 
     public void Rename(string newName)

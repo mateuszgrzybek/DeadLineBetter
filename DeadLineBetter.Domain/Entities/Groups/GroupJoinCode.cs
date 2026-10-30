@@ -9,7 +9,7 @@
 
     private GroupJoinCode() { }
 
-    internal GroupJoinCode(Guid groupId, string codeHash, string encryptedCode, DateTimeOffset createdAtUtc)
+    internal GroupJoinCode(Guid groupId, string codeHash, string encryptedCode)
     {
       if (groupId == Guid.Empty)
       {
@@ -19,22 +19,17 @@
       GroupId = groupId;
       CodeHash = codeHash;
       EncryptedCode = encryptedCode;
-      CreatedAtUtc = createdAtUtc;
+      CreatedAtUtc = DateTimeOffset.UtcNow;
     }
 
-    internal void UpdateJoinCode(string codeHash, string encryptedCode, DateTimeOffset createdAtUtc)
+    internal void UpdateJoinCode(string codeHash, string encryptedCode)
     {
       ArgumentException.ThrowIfNullOrWhiteSpace(codeHash);
       ArgumentException.ThrowIfNullOrWhiteSpace(encryptedCode);
 
-      if (createdAtUtc.Offset != TimeSpan.Zero)
-      {
-        throw new ArgumentException("The supplied creation date must be in UTC.", nameof(createdAtUtc));
-      }
-
       CodeHash = codeHash;
       EncryptedCode = encryptedCode;
-      CreatedAtUtc = createdAtUtc;
+      CreatedAtUtc = DateTimeOffset.UtcNow;
     }
   }
 }
