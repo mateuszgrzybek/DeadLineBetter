@@ -2,7 +2,7 @@
   <Folder Name="/src/">
     <Project Path="I:/Repos/DeadLineBetter/DeadLineBetter.Application/DeadLineBetter.Application.csproj" Id="aa2a768d-803d-4285-8a37-4276bf46fe12" />
     <Project Path="I:/Repos/DeadLineBetter/DeadLineBetter.Domain/DeadLineBetter.Domain.csproj" Id="9b4af6ad-93c2-450f-924c-7b7f2501c55d" />
-    <Project Path="I:/Repos/DeadLineBetter/src/DeadLineBetter.Api/DeadLineBetter.Api.csproj" />
-    <Project Path="I:/Repos/DeadLineBetter/src/DeadLineBetter.Infrastructure/DeadLineBetter.Infrastructure.csproj" />
+    <Project Path="I:/Repos/DeadLineBetter/DeadLineBetter.Api/DeadLineBetter.Api.csproj" />
+    <Project Path="I:/Repos/DeadLineBetter/DeadLineBetter.Infrastructure/DeadLineBetter.Infrastructure.csproj" />
   </Folder>
 </Solution>

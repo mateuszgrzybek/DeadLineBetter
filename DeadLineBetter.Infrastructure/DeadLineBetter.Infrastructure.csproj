@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DeadLineBetter.Application\DeadLineBetter.Application.csproj" />
-    <ProjectReference Include="..\..\DeadLineBetter.Domain\DeadLineBetter.Domain.csproj" />
+    <ProjectReference Include="..\DeadLineBetter.Application\DeadLineBetter.Application.csproj" />
+    <ProjectReference Include="..\DeadLineBetter.Domain\DeadLineBetter.Domain.csproj" />
   </ItemGroup>
 
 </Project>

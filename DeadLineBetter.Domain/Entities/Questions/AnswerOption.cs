@@ -34,7 +34,7 @@
     {
       if (string.IsNullOrWhiteSpace(newText))
       {
-        throw new ArgumentException("The new answer option text cannot be empty or white-space only.")
+        throw new ArgumentException("The new answer option text cannot be empty or white-space only.");
       }
 
       Text = newText.Trim();

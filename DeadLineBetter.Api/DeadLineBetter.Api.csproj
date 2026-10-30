@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DeadLineBetter.Application\DeadLineBetter.Application.csproj" />
+    <ProjectReference Include="..\DeadLineBetter.Application\DeadLineBetter.Application.csproj" />
     <ProjectReference Include="..\DeadLineBetter.Infrastructure\DeadLineBetter.Infrastructure.csproj" />
   </ItemGroup>
 
